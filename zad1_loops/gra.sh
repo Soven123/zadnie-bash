@@ -1,8 +1,8 @@
-LUCKY_NUMBER=52
+LUCKY_NUMBER=$((1 + $RANDOM % 10))
 IS_WINNER=false
 for i in {1..3}
 do
-	read -p "Podaj liczbe: " NUMBER
+	read -p "Podaj liczbe od 1 do 10: " NUMBER
 
 	if [ $LUCKY_NUMBER = $NUMBER ]
 	then
@@ -25,5 +25,6 @@ do
 done
 if [ $IS_WINNER = false ]
 then
-	echo Koniec prob
+	echo Koniec prob. 
 fi	
+echo Wlasciwa liczba to: $LUCKY_NUMBER
