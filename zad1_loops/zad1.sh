@@ -1,9 +1,13 @@
+#wyczysc i przywroc katalog testowy
+rm -rf ./test
 tar -xf test.tar
 cd test
-read -p "Jakie pliki wyszukac?:" EXT
+
+#program
+read -p "Jakie pliki wyszukac?: " EXT
 FILES=*.$EXT
 
-echo "Znaleziono nastepujace pliki:"  $FILES
+echo "Znaleziono nastepujace pliki: "  $FILES
 echo  Co z nimi zrobic?   
 echo » 1. Usun
 echo » 2. Zmien prawa
@@ -31,8 +35,20 @@ fi
 
 if [ $CHOICE = 3 ]
 then
+	read -p "Podaj uzytkownika: " USER
 	for F in $FILES
 	do
-		chown "jurek" "$F"
+		sudo chown $USER "$F"
 	done
 fi
+
+if [ $CHOICE = 2 ]
+then
+	read -p "Podaj prawa: " PRIVILEGES
+	for F in $FILES
+	do
+		chmod $PRIVILEGES "$F"
+	done
+fi
+
+
