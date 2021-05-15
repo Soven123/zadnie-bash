@@ -28,7 +28,7 @@ do
 	if [ $CHOICE = 3 ]
 	then
 		read -p "Wpisz nazwe grupy do utworzenia: " GROUP
-		groupadd $GROUP
+		sudo groupadd $GROUP
 		
 		break
 	fi
@@ -37,7 +37,7 @@ do
 	then
 		read -p "Wpisz nazwe uzytkownika: " USER
 		read -p "Wpisz nazwe grupy do ktorej chcesz przypisac uzytkownika: " GROUP
-		usermod -aG $GROUP $USER
+		sudo usermod -aG $GROUP $USER
 		
 		break
 	fi
